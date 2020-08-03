@@ -107,26 +107,27 @@ uint8_t Read_Temp(datapinTypedef* dq, searchstate_Typedef* ss, float* ret_val)
 		case 9:
 			decimal = (temp >> 3) & 0x01;
 			decimal *= (float)DS18B20_DECIMAL_STEPS_9BIT;
-		break;
+		 	break;
 
 		case 10:
 			decimal = (temp >> 2) & 0x03;
 			decimal *= (float)DS18B20_DECIMAL_STEPS_10BIT;
-		 break;
+		 	break;
 
 		case 11:
 			decimal = (temp >> 1) & 0x07;
 			decimal *= (float)DS18B20_DECIMAL_STEPS_11BIT;
-		break;
+			break;
 
 		case 12:
 			decimal = temp & 0x0F;
 			decimal *= (float)DS18B20_DECIMAL_STEPS_12BIT;
-		 break;
+		 	break;
 
 		default:
 			decimal = 0xFF;
 			digit = 0;
+			break;
 	}
 
     decimal = digit + decimal;
